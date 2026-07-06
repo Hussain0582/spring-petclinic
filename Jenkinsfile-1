@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git-hub') {
+            steps {
+             git branch: 'main', url: 'https://github.com/Hussain0582/spring-petclinic.git'   
+            }
+        }
+        stage('generate-build') {
+            steps {
+               sh 'mvn package'
+            }
+        }
+    }
+}
